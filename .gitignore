@@ -146,3 +146,5 @@ mindspore/ccsrc/plugin/device/ascend/kernel/opapi/aclnn_auto_gen/
 
 # ascendc compile
 mindspore/ccsrc/plugin/device/ascend/kernel/ascendc/build_out/
+*.class
+*.jar
