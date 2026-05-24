@@ -1,0 +1,20 @@
+主题：[安全漏洞通报] JeecgBoot QueryGenerator.installAuthJdbc() SQL注入 — issue #9434 补丁不完整
+
+您好，JeecgBoot 安全团队：
+
+我是一名安全研究人员，在审计 JeecgBoot 源码时发现 issue #9434 的修复存在遗漏：
+installMplus() 和 installAuthMplus() 已加上 SqlInjectionUtil.filterContent() 过滤，
+但同类方法 installAuthJdbc() 未做相同处理，仍可通过数据权限规则注入 SQL。
+
+漏洞详情及复现步骤见附件。
+
+修复方式很简单（与现有补丁模式一致）：在 QueryGenerator.java 第951行
+getSqlRuleValue() 返回值上增加 SqlInjectionUtil.filterContent() 调用即可。
+
+我已同步向 CNVD 提交，编号待分配。在厂商确认修复前，我不会公开披露任何细节。
+
+如有疑问欢迎回复此邮件沟通。
+
+此致
+[你的名字/ID]
+[联系方式]
